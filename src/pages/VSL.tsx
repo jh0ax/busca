@@ -8,8 +8,8 @@ export default function VSL() {
 
   const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
     const currentTime = e.currentTarget.currentTime;
-    if (currentTime >= 300 && !showCTA) setShowCTA(true);
-    if (currentTime >= 330 && !showModal) setShowModal(true);
+    if (currentTime >= 300) setShowCTA(true);
+    if (currentTime >= 330) setShowModal(true);
   };
 
   const getCheckoutUrl = () => {
@@ -33,8 +33,8 @@ export default function VSL() {
             controls
             onTimeUpdate={handleTimeUpdate}
             onEnded={() => {
-              if (!showCTA) setShowCTA(true);
-              if (!showModal) setShowModal(true);
+              setShowCTA(true);
+              setShowModal(true);
             }}
             src="/vsl-video.mp4"
           >
