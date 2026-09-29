@@ -7,9 +7,9 @@ export default function VSL() {
   const [modalClosed, setModalClosed] = useState(false);
 
   const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
-    const currentTime = e.currentTarget.currentTime;
-    if (currentTime >= 300) setShowCTA(true);
-    if (currentTime >= 330) setShowModal(true);
+    const video = e.currentTarget;
+    if (video.currentTime >= 300) setShowCTA(true);
+    if (video.currentTime >= 330) setShowModal(true);
   };
 
   const getCheckoutUrl = () => {
@@ -43,7 +43,7 @@ export default function VSL() {
         </div>
 
         {showCTA && (
-          <div className="flex justify-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="flex justify-center mt-6 w-full opacity-100 z-10">
             <button 
               onClick={() => window.location.href = getCheckoutUrl()}
               className="w-full max-w-lg h-20 text-xl font-bold bg-green-600 hover:bg-green-700 text-white rounded-2xl shadow-[0_0_20px_rgba(22,163,74,0.4)]"
