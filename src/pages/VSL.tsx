@@ -2,14 +2,14 @@ import { useState } from "react";
 import { X } from "lucide-react";
 
 export default function VSL() {
-  const [time, setTime] = useState(0);
+  const [showCTA, setShowCTA] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [modalClosed, setModalClosed] = useState(false);
-  
-  const showCTA = time >= 300; // 5:00 (300 segundos)
-  const showModal = time >= 330 && !modalClosed; // 5:30 (330 segundos)
 
   const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
-    setTime(e.currentTarget.currentTime);
+    const currentTime = e.currentTarget.currentTime;
+    if (currentTime >= 300) setShowCTA(true);
+    if (currentTime >= 330) setShowModal(true);
   };
 
   const getCheckoutUrl = () => {
@@ -50,7 +50,7 @@ export default function VSL() {
         )}
       </div>
 
-      {showModal && (
+      {showModal && !modalClosed && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8 relative animate-in zoom-in-95 duration-300 border border-gray-100">
             <button 
