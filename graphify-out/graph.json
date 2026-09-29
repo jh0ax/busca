@@ -1,10 +1,27 @@
 {
-  "generated_at": "2026-09-29T00:53:23.005777+00:00",
+  "generated_at": "2026-09-29T01:18:14.931100+00:00",
   "files": [
     {
       "path": "README.md",
       "bytes": 7
+    },
+    {
+      "path": ".lovasiri/sync.json",
+      "bytes": 80
+    },
+    {
+      "path": "src/pages/VSL.tsx",
+      "bytes": 3034
     }
   ],
-  "dependencies": []
+  "dependencies": [
+    {
+      "source": "src/pages/VSL.tsx",
+      "target": "react"
+    },
+    {
+      "source": "src/pages/VSL.tsx",
+      "target": "lucide-react"
+    }
+  ]
 }
