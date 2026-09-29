@@ -8,8 +8,8 @@ export default function VSL() {
 
   const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
     const currentTime = e.currentTarget.currentTime;
-    if (currentTime >= 300) setShowCTA(true);
-    if (currentTime >= 330) setShowModal(true);
+    if (currentTime >= 300 && !showCTA) setShowCTA(true);
+    if (currentTime >= 330 && !showModal) setShowModal(true);
   };
 
   const getCheckoutUrl = () => {
@@ -32,6 +32,10 @@ export default function VSL() {
             className="w-full h-full object-contain"
             controls
             onTimeUpdate={handleTimeUpdate}
+            onEnded={() => {
+              if (!showCTA) setShowCTA(true);
+              if (!showModal) setShowModal(true);
+            }}
             src="/vsl-video.mp4"
           >
             Tu navegador no soporta el video.
