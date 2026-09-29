@@ -13,7 +13,7 @@ export default function VSL() {
   };
 
   const getCheckoutUrl = () => {
-    const CHECKOUT_URL = "COLE_AQUI_EL_LINK_DEL_CHECKOUT";
+    const CHECKOUT_URL = "https://pay.hotmart.com/W107811051I";
     try {
       const url = new URL(CHECKOUT_URL);
       const params = new URLSearchParams(window.location.search);
@@ -61,7 +61,7 @@ export default function VSL() {
             </button>
             <div className="text-center space-y-8">
               <p className="text-2xl font-bold text-gray-900 leading-tight">
-                Ya conoces los 5 códigos.<br/>Ahora puedes empezar.
+                Ya conoces los 5 códigos.<br/>Ahora puedes empezar a trabajar con ellos paso a paso.
               </p>
               <button 
                 onClick={() => window.location.href = getCheckoutUrl()}
